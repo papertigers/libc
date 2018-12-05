@@ -1077,9 +1077,11 @@ extern {
     pub fn tcdrain(fd: ::c_int) -> ::c_int;
     pub fn cfgetispeed(termios: *const ::termios) -> ::speed_t;
     pub fn cfgetospeed(termios: *const ::termios) -> ::speed_t;
+    #[cfg(not(target_os = "solaris"))]
     pub fn cfmakeraw(termios: *mut ::termios);
     pub fn cfsetispeed(termios: *mut ::termios, speed: ::speed_t) -> ::c_int;
     pub fn cfsetospeed(termios: *mut ::termios, speed: ::speed_t) -> ::c_int;
+    #[cfg(not(target_os = "solaris"))]
     pub fn cfsetspeed(termios: *mut ::termios, speed: ::speed_t) -> ::c_int;
     pub fn tcgetattr(fd: ::c_int, termios: *mut ::termios) -> ::c_int;
     pub fn tcsetattr(fd: ::c_int,
