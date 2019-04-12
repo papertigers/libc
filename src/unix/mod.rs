@@ -613,7 +613,7 @@ extern {
     #[cfg_attr(target_os = "macos", link_name = "readdir_r$INODE64")]
     #[cfg_attr(target_os = "netbsd", link_name = "__readdir_r30")]
     #[cfg_attr(any(target_os = "solaris", target_os = "illumos"),
-               link_name = "__posix_readdir_r")]
+               link_name = "readdir_r")]
     #[cfg_attr(target_os = "freebsd", link_name = "readdir_r@FBSD_1.0")]
     pub fn readdir_r(dirp: *mut ::DIR, entry: *mut ::dirent,
                      result: *mut *mut ::dirent) -> ::c_int;
